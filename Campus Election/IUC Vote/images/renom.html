@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="text.css" />
+    <link rel="stylesheet" href="960.css" />
+    <link rel="stylesheet" href="default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="pascal.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="orman.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+<!--[if lt IE]>
+       <link rel="stylesheet" href="ie.css" type="text/css" media="screen">
+<![endif]--><title>Untitled Document</title>
+<script>
+// Copyright 2006-2007 javascript-array.com
+
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; </script>
+</head>
+<body>
+<div id="grey">
+<div class="container_12">
+<div class="grid_12 top"></div>
+<div class="grid_12 logo"><img class="" src="logo.png" alt="img" /></div>
+<div class="grid_12 ull"></div>
+<div class="grid_12 ul">
+<ul id="sddm">
+ <li ><span class="home">ACCUEIL</span></li>
+    <li><a href="#" 
+        onmouseover="mopen('m1')" 
+        onmouseout="mclosetime()">ELECTION EN 3IAC <img src="23.png" alt="img" /></a>
+        <div id="m1" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="#">PRESIDENT 3IAC</a>
+        <a href="#">DHTML Menu</a>
+        <a href="#">JavaScript DropDown</a>
+        <a href="#">Cascading Menu</a>
+        <a href="#">CSS Horizontal Menu</a>
+        </div>
+    </li>
+   
+    <li><a href="#" 
+        onmouseover="mopen('m2')" 
+        onmouseout="mclosetime()">Services<img src="23.png" alt="img" /></a>
+        <div id="m2" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="#">New Services</a>
+        <a href="#">Specialized Services</a>
+        <a href="#">Services List</a>
+        <a href="#">Special Support</a>
+        </div>
+    </li>
+   
+    <li><a href="#">Partners</a></li>
+    <li><a href="#">Contacts</a></li>
+</ul>
+
+</div>
+<div class="grid_12">
+
+    <div id="wrapper">
+
+        <div class="slider-wrapper theme-default">
+            <div class="ribbon"></div>
+            <div id="slider" class="nivoSlider">
+                <img src="18.png" alt="" />
+                <a href=""><img src="19.png" alt="" title="This is an example of a caption" /></a>
+                <img src="20.png" alt="" />
+                <img src="21.png" alt="" title="#htmlcaption" />
+            </div>
+            
+     </div>
+
+    </div>
+    <script type="text/javascript" src="jquery-1.6.1.min.js"></script>
+    <script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div style="clear:both"></div>
+
+</div></div>
+<div id="white"><div class="container_12">
+<div class="grid_12 wh"></div>
+<div class="grid_4 three">Resources</div><div class="grid_4 three">Management</div><div class="grid_4 three">Analysis</div>
+
+<div class="grid_4 wr">
+
+   
+      <p class="text1"><img src="02.png" class="imgg" alt="img" />Areledusempquib dameto necessit atibus saepe eveniet utoluptates doloresed sapie ntemi<br />Dusempquibdameto aused Estudesu usand aeIt aque earumum reruhitenetura sapientemi delectuuut reiciendis volubutumo maiores alias. Asperiores repellat...    </p>
+   <p><a class="hover" target="_blank" href="#"><img src="05.png" alt="img" /></a></p>
+
+
+</div>
+<div class="grid_4 wr">
+
+   
+      <p class="text1"><img src="02.png" class="imgg" alt="img" />Areledusempquib dameto necessit atibus saepe eveniet utoluptates doloresed sapie ntemi<br />Dusempquibdameto aused Estudesu usand aeIt aque earumum reruhitenetura sapientemi delectuuut reiciendis volubutumo maiores alias. Asperiores repellat...    </p>
+   <p><a class="hover" target="_blank" href="#"><img src="05.png" alt="img" /></a></p>
+
+
+</div>
+<div class="grid_4 wr">
+
+   
+      <p class="text1"><img src="02.png" class="imgg" alt="img" />Areledusempquib dameto necessit atibus saepe eveniet utoluptates doloresed sapie ntemi<br />Dusempquibdameto aused Estudesu usand aeIt aque earumum reruhitenetura sapientemi delectuuut reiciendis volubutumo maiores alias. Asperiores repellat...    </p>
+   <p><a class="hover" target="_blank" href="#"><img src="05.png" alt="img" /></a></p></div>
+<div style="clear:both"></div>
+<div class="grid_4">
+<p class="text4">Headlines<span class="left"><a target="_blank" href=""><img src="08.png" class="june" alt="img" /></a><a target="_blank" href=""><img src="09.png" class="june" alt="img" /></a></span></p>
+<p><img src="06.png" class="june" alt="img" /><br /><span class="text2">MASSA LAB ORUM DOLOR</span><br /><span class="text3">tempore, cum soluta nobisestomi elienisa omnis voluptas assumo</span></p><br />
+<img src="07.png" class="june" alt="img" /><br /><span class="text2">WED EST LAB ORUM EUNAM</span><br /><span class="text3">tempore, cum soluta nobisestomi elienis</span></p><br />
+<a class="view" target="_blank" href="">view all</a> <img src="11.png" class="june" alt="img" /> 
+</div>
+<div class="grid_8 welcome">
+<p><span class="text5">Welcome to Our Site!</span><br /><br />
+<span class="text6"><img src="10.png" class="man" alt="img" /><br />
+&quot;Est omnis doloresereledusempquibdameto aurerumoms odes necessitatibus saepe eveniet utoluptates estudesu usandaeItaque earumum rerum hic tenetura sapientemi delectuuut reiciendis voluptatibus ass maiores alias<br /><br />
+ 
+Asperiores repellat aurerum odes necessitatibus saepe eveniet utoluptates estu usandaeItaque earum rerum hic tenetura sapiente delectus&quot;
+<br /><br />
+<span class="text7">mr. John Brown</span> (General Director)</span>
+</p>
+</div>
+</div></div>
+<div id="black">
+<div class="container_12"><div class="grid_12 footer"></div>
+<div class="grid_3 foot">Nev Services</div>
+<div class="grid_3 foot">Testimonials</div>
+<div class="grid_3 foot">Connects</div>
+<div class="grid_3 foot">Clients <span class="left"><a target="_blank" href=""><img src="14.png" class="june" alt="img" /></a><a target="_blank" href=""><img src="15.png" class="june" alt="img" /></a></span></div>
+<div class="grid_12 footer1"></div>
+<div class="grid_3 line"><img src="12.png" alt="img" /></div>
+<div class="grid_3 line"><img src="12.png" alt="img" /></div>
+<div class="grid_3 line"><img src="12.png" alt="img" /></div>
+<div class="grid_3 line"><img src="12.png" alt="img" /></div>
+
+
+<div class="grid_3">
+<ul>
+<li><a class="text12" target="_blank" href="">Strategy</a></li>
+<li><a class="text12" target="_blank" href="">Investment banking</a></li>
+<li><a class="text12" target="_blank" href="">Marketing consulting</a></li>
+<li><a class="text12" target="_blank" href="">Research</a></li>
+<li><a class="text12" target="_blank" href="">Project management</a></li>
+<li><a class="text12" target="_blank" href="">Tax services</a></li>
+</ul></div>
+<div class="grid_3">
+<p class="text9">&quot;Aro omnis doloreser eledusempquibdamet aurerume odes necessitatibus saepemo 
+alias consequatur aut pererendis doloribus asperiores ...<br /><br />
+
+<span class="text10">mr. John Anderson</span> (New York)</p></div>
+<div class="grid_3 connects">
+<div class="rss"><a target="_blank" href=""><img src="r.png" alt="img" /></a></div><div class="rss1"> RSS</div>
+<br /><br /><br />
+
+<div class="rss"><a target="_blank" href=""><img src="t.png" alt="img" /></a></div><div class="rss1"> Twitter</div>
+<br /><br /><br />
+<div class="rss"><a target="_blank" href=""><img src="f.png" alt="img" /></a></div><div class="rss1"> Facebook</div></div>
+<div class="grid_3 clients">
+<a target="_blank" href=""><img src="16.png" alt="img" /></a><br />
+<a target="_blank" href=""><img src="17.png" alt="img" /></a>
+</div>
+
+</div>
+
+</div>
+
+<div id="bl">
+<div class="container_12">
+<div class="grid_3 suffix_5"><p class="text11">&copy;2011 | <a class="text11" target="_blank" href="#">Privacy policy</a></p></div>
+<div class="grid_4 fto"><div class="vlinks"><a href="http://www.webdesign.org">Web design</a> by <a title="Free Templates Online" href="http://www.freetemplatesonline.com">Free Templates</a> Online</div></div>
+</div></div></div>
+
+
+</body>
+</html>

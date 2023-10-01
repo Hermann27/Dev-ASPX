@@ -1,0 +1,168 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="GestionStudents.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Education</title>
+<meta name="keywords" content="free css templates, education, school, college, university, templatemo.com" />
+<meta name="description" content="Education template is for academic related websites" />
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div id="templatemo_header_wrapper">
+    <div id="templatemo_header">
+    	<div id="site_title">
+            <h1><a href="http://www.templatemo.com" target="_parent">
+                <img src="images/templatemo_logo.png" alt="Site Title" />
+                <span>free css templates</span>
+            </a></h1>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquet, ipsum bibendum pretium volutpat, diam magna facilisis ante.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    
+    </div> <!-- end of templatemo_header -->
+
+</div> <!-- end of templatemo_menu_wrapper -->
+
+  
+    <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+        <asp:View ID="ViewEtud" runat="server">
+        <div id="templatemo_menu_wrapper">
+    <div id="templatemo_menu">
+        
+        <ul>
+            <li><a href="#" class="current">Home</a></li>
+            <li><a href="/ConsultNotes.aspx" target="_parent">Consulter Notes</a></li>
+            <li><a href="http://www.flashmo.com" target="_parent">Telecharger</a></li>
+            <li><a href="/Fichier/InsertFile.aspx" target="_parent">Inserer Fichier</a></li>
+            <li><a href="/Etudiants/Evaluation.aspx">Evaluation</a></li>
+            <li><a href="/Etudiants/ListeEtudiant.aspx">Liste Etudiants</a></li>
+            <li><a href="/Filiere03.aspx" target="_parent" >Les Filieres</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>    	
+    
+    </div> <!-- end of templatemo_menu -->
+</div>
+
+        </asp:View>
+
+
+        <asp:View ID="ViewEns" runat="server">
+        <div id="Divct">
+    <div id="Divcd">
+        
+        <ul>
+            <li><a href="#" class="current">Home</a></li>
+            <li><a href="http://www.templatemo.com" target="_parent">Consulter Notes</a></li>
+            <li><a href="Enseignants/InsertNotes.aspx" target="_parent">Inserer Notes</a></li>
+            <li><a href="http://www.flashmo.com" target="_parent">Telecharger</a></li>
+            <li><a href="http://www.koflash.com" target="_parent">Inserer Fichier</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>    	
+    
+    </div> <!-- end of templatemo_menu -->
+</div>
+
+        </asp:View>
+
+    </asp:MultiView>
+<div id="templatemo_content_wrapper">
+
+	<div id="templatemo_sidebar">
+    
+    	<div class="sidebar_box">
+        	
+            <div id="connecte" runat="server"><asp:Image 
+                    ID="Image1" runat="server" Height="47px" Width="50px" ImageUrl="acroread.png" />
+                <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="Label"></asp:Label><br /><br />
+                <asp:LinkButton ID="BtnDec" runat="server">Deconnecter</asp:LinkButton></div>
+    
+            <div class="news_box">
+                <fieldset style="width:100; border-color:Blue" id="fs" runat="server">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Matricule :<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="TextBox1" runat="server" BorderStyle="Ridge"></asp:TextBox>
+                <br />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Mot de passe :<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="TxtPass" runat="server" BorderStyle="Ridge"></asp:TextBox>
+                <br />
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="BtnCon" runat="server" Text="Connecter" Width="112px" />
+                </fieldset>
+   <div id="Div1">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+    </div>
+            </div>
+            
+            <div class="news_box">
+                <a href="#">Integer imperdiet, justo ut venenatis vehicula, magna mi placerat felis.</a>
+                <p class="post_info">Posted by <a href="#">Admin</a> on <span>April 22, 2048</span></p>
+            </div>
+            
+            <div class="news_box">
+                <a href="#">Sed justo dolor, convallis at, vestibulum vitae, elementum eu, pede.</a>
+                <p class="post_info">Posted by <a href="#">Admin</a> on <span>April 14, 2048</span></p>
+            </div>
+        
+        </div>
+        
+        <div class="sidebar_box">
+			
+            </div>
+        
+        </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    </div>
+    <!-- end of sidebar -->
+    
+   <div id="templatemo_content" style="display:block">
+    
+    	
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    
+    
+    
+    
+    
+    </asp:ContentPlaceHolder>
+    <div class="cleaner"></div>
+
+</div>
+
+    </form>
+
+<div id="templatemo_footer_wrapper">
+
+    <div id="templatemo_footer">
+    
+        <ul class="footer_menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="http://www.templatemo.com" target="_parent">Templates</a></li>
+                    <li><a href="http://www.flashmo.com" target="_parent">Flash Files</a></li>
+                    <li><a href="http://www.koflash.com" target="_parent">Gallery</a></li>
+                    <li><a href="#">Members</a></li>
+                    <li class="last_menu"><a href="#">Contact Us</a></li>
+                </ul>
+                
+                Copyright © 2048 <a href="#">Your Company Name</a> | 
+                <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a></div>
+    
+</div>
+<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+    <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_03" Class="DCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\BD_03.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BD_03ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Enseignant" Member="Enseignants">
+    <Type Name="Enseignant">
+      <Column Name="Id_Personne" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Annee" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Specialite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Enseignant_Evaluation" Member="Evaluations" ThisKey="Id" OtherKey="Id_Enseignant" Type="Evaluation" />
+      <Association Name="Enseignant_Matiere" Member="Matieres" ThisKey="Id" OtherKey="Id_Enseignant" Type="Matiere" />
+      <Association Name="Specialite_Enseignant" Member="Specialite" ThisKey="Id_Specialite" OtherKey="Id" Type="Specialite" IsForeignKey="true" />
+      <Association Name="Personne_Enseignant" Member="Personne" ThisKey="Id_Personne" OtherKey="Id" Type="Personne" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Specialite" Member="Specialites">
+    <Type Name="Specialite">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Effectif" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Filiere" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Specialite_Enseignant" Member="Enseignants" ThisKey="Id" OtherKey="Id_Specialite" Type="Enseignant" />
+      <Association Name="Specialite_Etudiant" Member="Etudiants" ThisKey="Id" OtherKey="Id_Specialite" Type="Etudiant" />
+      <Association Name="Specialite_Fichier" Member="Fichiers" ThisKey="Id" OtherKey="Id_Specialite" Type="Fichier" />
+      <Association Name="Filiere_Specialite" Member="Filiere" ThisKey="Id_Filiere" OtherKey="Id" Type="Filiere" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etudiant" Member="Etudiants">
+    <Type Name="Etudiant">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id_Personne" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Annee" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Specialite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Niveau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Etudiant_Evaluation" Member="Evaluations" ThisKey="Id" OtherKey="Id_Etudiant" Type="Evaluation" />
+      <Association Name="Etudiant_Note" Member="Notes" ThisKey="Id" OtherKey="Id_Etudiant" Type="Note" />
+      <Association Name="Specialite_Etudiant" Member="Specialite" ThisKey="Id_Specialite" OtherKey="Id" Type="Specialite" IsForeignKey="true" />
+      <Association Name="Personne_Etudiant" Member="Personne" ThisKey="Id_Personne" OtherKey="Id" Type="Personne" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Evaluation" Member="Evaluations">
+    <Type Name="Evaluation">
+      <Column Name="Id_Etudiant" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Enseignant" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Texte" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Mention" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date_Evaluation" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Enseignant_Evaluation" Member="Enseignant" ThisKey="Id_Enseignant" OtherKey="Id" Type="Enseignant" IsForeignKey="true" />
+      <Association Name="Etudiant_Evaluation" Member="Etudiant" ThisKey="Id_Etudiant" OtherKey="Id" Type="Etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fichier" Member="Fichiers">
+    <Type Name="Fichier">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id_Specialite" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Niveau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Annee" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Correction" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Extension" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Fichier" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Specialite_Fichier" Member="Specialite" ThisKey="Id_Specialite" OtherKey="Id" Type="Specialite" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Filiere" Member="Filieres">
+    <Type Name="Filiere">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Filiere_Specialite" Member="Specialites" ThisKey="Id" OtherKey="Id_Filiere" Type="Specialite" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Matiere" Member="Matieres">
+    <Type Name="Matiere">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Intitule" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Credit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Enseignant" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Plan_Cour" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Matiere_Note" Member="Notes" ThisKey="Id" OtherKey="Id_Matiere" Type="Note" />
+      <Association Name="Enseignant_Matiere" Member="Enseignant" ThisKey="Id_Enseignant" OtherKey="Id" Type="Enseignant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Note" Member="Notes">
+    <Type Name="Note">
+      <Column Name="Id_Matiere" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_Etudiant" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Trimestre" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CC1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CC2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Exam" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Etudiant_Note" Member="Etudiant" ThisKey="Id_Etudiant" OtherKey="Id" Type="Etudiant" IsForeignKey="true" />
+      <Association Name="Matiere_Note" Member="Matiere" ThisKey="Id_Matiere" OtherKey="Id" Type="Matiere" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personne" Member="Personnes">
+    <Type Name="Personne">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Situation_Matrimoniale" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date_Naissance" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Matricule" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Profession" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Personne_Enseignant" Member="Enseignants" ThisKey="Id" OtherKey="Id_Personne" Type="Enseignant" />
+      <Association Name="Personne_Etudiant" Member="Etudiants" ThisKey="Id" OtherKey="Id_Personne" Type="Etudiant" />
+    </Type>
+  </Table>
+</Database>

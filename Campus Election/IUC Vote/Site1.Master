@@ -1,0 +1,168 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site1.master.vb" Inherits="IUC_Vote.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><asp:ContentPlaceHolder ID="TitleContent" runat="server"></asp:ContentPlaceHolder></title>
+<meta name="keywords" content="Business Website, free templates, website templates, 3-column layout, CSS, XHTML" />
+<meta name="description" content="Business Website, 3-column layout, free CSS template from templatemo.com" />
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+// <!CDATA[
+
+function Login_onclick() {
+
+}
+
+// ]]>
+</script>
+</head>
+
+<body>
+<form runat="server" id="form1">
+<div id="templatemo_container">
+   
+    <div id="templatemo_header">
+    	<div id="logosection">
+	        <div class="sitelogo"></div>
+        	<div class="sitename">            	
+            	Election<span></span>            </div>
+      </div>
+        <div id="header">
+        	<div class="title">
+            	<p>Election<br />
+	        	<span class="bigtext">Libre et Transparente</span><br />
+    	    	</p></div>
+
+        </div>
+	</div>
+    
+	<div id="templatemo_menu">
+    	<div id="search">
+				<input class="textfield" type="text" value="Search..."/> <input class="send_btn" type="submit" value="Go" />
+    	</div>
+        <div id="menu">
+            <ul>
+                 <%If Session("ad") IsNot Nothing Then%> 
+                <li><a href="Default.aspx" class="current">Acceuil</a></li>
+                <li><a href="Etudiant.aspx">Etudiant</a></li>
+             <li><a href="Souscrir.aspx">Candidat</a></li>
+               <li><a href="#">Vote</a></li>
+                <li><a href="Contact.aspx">Contact</a></li>
+             
+                
+            
+                    <%--<li><a href="#">A propos de nous</a></li>
+                    <li><a href="Contact.aspx">Contact</a></li>--%>
+                    <% %>
+                  <%ElseIf Session("et") IsNot Nothing Then%>
+                  <li><a href="Default.aspx" class="current">Acceuil</a></li>
+                 <li><a href="#">A propos de nous</a></li>
+                <li><a href="Contact.aspx">Contact</a></li>
+                <%Else%>
+                  <li><a href="Default.aspx" class="current">Acceuil</a></li>
+                <li><a href="Contact.aspx">Contact</a></li>
+
+                  <%End If%>
+                  
+            </ul>
+        </div>
+	</div>
+    
+    <!-- start of content -->
+    
+	<div id="templatemo_content">
+    
+    	<!-- start of left column -->
+    
+    	<div id="templatemo_left_column">        	
+
+            <div id="leftcolumn_box01">
+                <div class="leftcolumn_box01_top">
+                    <div id="Loghere" runat="server"><blink>CONNEXION</blink>
+                  
+                    </div>
+                  
+                    </br>
+                     <center><asp:LinkButton ID="BtnDecon" runat="server" Visible="False">Déconnexion</asp:LinkButton></center>
+                </div>
+                
+                <div runat="server"  id="login_form" class="leftcolumn_box01_bottom">
+                       
+                      <div class="form_row"><label>Nom :</label></br><asp:RequiredFieldValidator
+                              ID="RequiredFieldValidator1" runat="server" ErrorMessage="Entrer votre nom" ControlToValidate="username"></asp:RequiredFieldValidator><input  runat="server" class="inputfield" name="username" type="text" id="username"/></div>
+                        <div class="form_row"><label>Matricule :</label></br><asp:RequiredFieldValidator
+                                ID="RequiredFieldValidator2" runat="server" ErrorMessage="Entrer le matricule!!" ControlToValidate="password"></asp:RequiredFieldValidator><input  runat="server" class="inputfield" name="password" type="password" id="password"/></div>
+                        <input class="button"  runat="server" causesvalidation="True" type="submit" name="Submit" id="Login"  onclick="return Login_onclick()" /><br />
+                      <asp:Label ID="Lb" runat="server" BackColor="Red" Text="Label" Visible="False"></asp:Label>
+&nbsp;
+                </div>            
+            </div>
+            
+            <div id="leftcolumn_box02"><br />
+            	<h2> Ecole & Poste</h2>
+            	  <%  If Session("et") IsNot Nothing Then%>
+                <ul>
+                     
+                    <li><h2>3IAC</h2></li>
+                    <li ><a href="Presidence.aspx">Presidence 3IAC</a></li>
+                    <li><a href="Delegue.aspx">Délègue</a></li>
+                    <li><a href="Vote.aspx">Election Miss</a></li>
+                    <li><a href="Master.aspx">Election Master</a></li>
+                    <li><h2>ICIA</h2></li>
+                    <li><a href="Presidence.aspx">Presidence ICIA</a></li>
+                    <li><a href="Delegue.aspx">Délègue</a></li>
+                    <li><a href="Vote.aspx">Election Miss</a></li>
+                    <li><a href="Master.aspx">Election Master</a></li>
+                    <li><h2>ISTDI</h2></li>
+                    <li><a href="Presidence.aspx">Presidence ISTDI</a></li>
+                    <li><a href="Delegue.aspx">Délègue</a></li>
+                    <li><a href="Vote.aspx">Election Miss</a></li>
+                    <li><a href="Master.aspx">Election Master</a></li>
+                   
+                </ul>
+                  <% End If%>
+            </div>
+            
+			<div id="imagebutton">
+            	<a href="#"><img src="images/templatemo_livechat.gif" alt="live chat" /></a>
+			</div>
+            
+        </div>
+        
+        <!-- end of left column -->
+        
+        <!-- start of middle column -->
+        
+    	  <div id="_content">
+        	
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    <a href="Default.aspx" target="_parent" class="current">Home</a></p>
+            </asp:ContentPlaceHolder>
+        </div> <!-- en content -->
+        
+        <!-- end of middle column -->
+        
+        <!-- start of right column -->
+        
+        <!-- end of right column -->
+    
+    </div>
+    
+    <!-- end of content -->
+        
+        
+	<div id="templatemo_footer">
+        <a href="#">Home</a> | <a href="#">About Us</a> | <a href="#">Services</a> | <a href="#">
+        Solutions</a> | <a href="#">Contact Us</a><br />
+        Copyright ©  <a href="#">Your Company Name</a> | Designed by <a href="http://www.templatemo.com" target="_blank">
+        templatemo.com</a></div>
+    <div id="templatemo_footer_bottom"></div>
+
+</div>
+</form>
+</body>
+</html>

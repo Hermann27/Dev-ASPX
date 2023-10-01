@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="BD_02" Class="DCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\BD_02.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BD_02ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Administrateur" Member="Administrateurs">
+    <Type Name="Administrateur">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEtud" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Etudiant_Administrateur" Member="Etudiant" ThisKey="IdEtud" Type="Etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vote" Member="Votes">
+    <Type Name="Vote">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Matricule" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Code_Candidat" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CodeElection" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Election_Vote" Member="Election" ThisKey="CodeElection" Type="Election" IsForeignKey="true" />
+      <Association Name="Etudiant_Vote" Member="Etudiant" ThisKey="Matricule" Type="Etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Candidature" Member="Candidatures">
+    <Type Name="Candidature">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Matricule" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Code_Election" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhotoProfil" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Extension" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Election_Candidature" Member="Election" ThisKey="Code_Election" Type="Election" IsForeignKey="true" />
+      <Association Name="Etudiant_Candidature" Member="Etudiant" ThisKey="Matricule" Type="Etudiant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Election" Member="Elections">
+    <Type Name="Election">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Election_Vote" Member="Votes" OtherKey="CodeElection" Type="Vote" />
+      <Association Name="Election_Candidature" Member="Candidatures" OtherKey="Code_Election" Type="Candidature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Etudiant" Member="Etudiants">
+    <Type Name="Etudiant">
+      <Column Name="Matricule" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Filiere" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Specialite" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Niveau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Etudiant_Administrateur" Member="Administrateurs" OtherKey="IdEtud" Type="Administrateur" />
+      <Association Name="Etudiant_Vote" Member="Votes" OtherKey="Matricule" Type="Vote" />
+      <Association Name="Etudiant_Candidature" Member="Candidatures" OtherKey="Matricule" Type="Candidature" />
+    </Type>
+  </Table>
+</Database>

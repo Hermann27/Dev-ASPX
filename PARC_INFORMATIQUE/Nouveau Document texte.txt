@@ -1,0 +1,9 @@
+Salut a Tous
+voila mon premier code que je déposé au vbfrance .
+Vous retrouviez une page html qui s'appel "Acceuil.html" qui contient des frames: une contient le menu de l'application et l'autre le logo de l'application et l'autre c'est le déstinataire de page aspx.
+mon application se déroule ou bien il traite un parc informatique (ajout une salle,logiciel,poste,segement,instalation)
+ensuite j'ai fais une petite diagramme qui est pour une but de donner une idée  des logiciel le plus utilise dans cette parc informatique cet etat peut l'utilisateur le télécharger .
+et aussi une autre etat qui s'appelle le "report la liste des poste.aspx" dans laquelle l'utilisateur peut exporter l'etat en excel par exemple.
+enfin j'espére que cela va me donner une petite coup de pousse pour moi pour devlopper mes connaissance en informatique et surtout au programation.
+n'hésitez pas de me donner votre avis sur ce petite application.
+Merci d'avance .
